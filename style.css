@@ -1,0 +1,806 @@
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/* ======================= IMPORTATION DES POLICES (DEBUT) ======================= */
+@font-face {
+    font-family: 'poppins', sans-serif;
+    src: url(fonts/Poppins/Poppins-Regular.ttf);
+}
+
+@font-face {
+    font-family: 'roboto', sans-serif;
+    src: url(fonts/Roboto/Roboto-Regular.ttf);
+}
+
+@font-face {
+    font-family: 'cinzel', sans-serif;
+    src: url(fonts/cinzel/Cinzel-Regular.otf);
+}
+
+@font-face {
+    font-family: 'righteous', sans-serif;
+    src: url(fonts/righteous/Righteous-Regular.ttf);
+}
+/* ======================= IMPORTATION DES POLICES (FIN) ======================= */
+
+
+/* ======================= DEFINITION DES VARIABLES (DEBUT) ======================= */
+:root {
+    --poppins: 'poppins', sans-serif;
+    --roboto: 'roboto', sans-serif;
+    --cinzel: 'cinzel';
+    --righteous: 'righteous';
+
+    --color-1: #273c75;
+    --color-2: #40739e;
+    --color-3: #fbc531;
+    --color-4: #487eb0;
+    --color-5: #44bd32;
+    --color-body: rgba(0, 0, 0, 0.8);
+
+    --font-size-body: 1em;
+    --font-size-button: 1.2em;
+    --font-size-link: 1em;
+    --font-size-logo: 2em;
+    --font-size-hero-1: 5em;
+    --font-size-hero-2: 2em;
+
+
+    --font-family-body: 'poppins', sans-serif;
+    --font-family-navbar: 'roboto', sans-serif;
+    --font-family-section: 'cinzel';
+
+    --box-shadow-bottom: 0 3px 9px 3px rgba(0, 0, 0, 0.2);
+    --text-shadow: 9px 9px 9px rgba(0, 0, 0, 0.7);
+
+    
+}
+/* ======================= DEFINITION DES VARIABLES (FIN) ======================= */
+body {
+    overflow-x: hidden;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+    background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: var(--color-3);
+}
+/* ======================= CSS HEADER (DEBUT) ======================= */
+.navbar {
+    position: fixed;
+    background-color: white;
+    box-shadow: var(--box-shadow-bottom);
+}
+
+.navbar::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* backdrop-filter: blur(50px); */
+    z-index: -1;
+    /* background-color: rgba(64, 115, 158, .2); */
+}
+
+.navbar::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background: linear-gradient(90deg, transparent, rgba(64, 115, 158, .5), transparent);
+    transition: all 1s;
+}
+
+.navbar:hover::after {
+    left: 100%;
+}
+
+.navbar-brand, .navbar-brand:hover {
+    font-family: var(--righteous);
+    font-size: var(--font-size-logo);
+    color: var(--color-1);
+    letter-spacing: 1px;
+}
+
+.navbar-brand::first-letter {
+    font-weight: bold;
+    color: var(--color-3);
+}
+
+.navbar-brand span:first-child {
+    color: var(--color-3);
+    font-weight: bold;
+}
+
+.offcanvas-header {
+    position: relative;
+    box-shadow: var(--box-shadow-bottom);
+}
+
+.offcanvas-header::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* backdrop-filter: blur(50px); */
+    z-index: -1;
+    /* background-color: rgba(64, 115, 158, .2); */
+}
+
+.offcanvas-header::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background: linear-gradient(90deg, transparent, rgba(64, 115, 158, .5), transparent);
+    transition: all 1s;
+}
+
+.offcanvas-header:hover::after {
+    left: 100%;
+}
+.nav-link, .nav-link.active {
+    font-size: var(--font-size-link);
+    font-family: var(--font-family-navbar);
+    font-weight: 500;
+    color: var(--color-1) !important;
+}
+
+.nav-link.active {
+    font-size: var(--font-size-link);
+    font-family: var(--font-family-navbar);
+    font-weight: 500;
+    color: white !important;
+    background-color: var(--color-1) !important;
+}
+
+.nav-link:hover {
+    color: white !important;
+    background-color: var(--color-1) !important;
+}
+
+.dropdown-toggle:focus {
+    color: white !important;
+    background-color: var(--color-1) !important;
+}
+
+.dropdown-menu {
+    border-radius: 0;
+    border: 1px solid rgba(64, 115, 158, .2);
+}
+
+.dropdown-item {
+    font-size: var(--font-size-link);
+    font-family: var(--font-family-navbar);
+    font-weight: 300;
+    color: var(--color-1);
+}
+
+.dropdown-item:hover {
+    color: white;
+    background-color: var(--color-3);
+}
+
+.navbar-toggler, .navbar-toggler:focus, .btn-close:focus {
+    border: none;
+    outline: none;
+    box-shadow: none;
+}
+
+.fa-bars, .btn-close, .btn-close:hover {
+    color: var(--color-3) !important;
+    font-size: 1.2em;
+}
+
+.favoris button span:first-child {
+    color: var(--color-1) !important;
+    font-size: 1.2em;
+}
+
+.favoris button span:last-child {
+    background-color: var(--color-3) !important;
+    font-family: var(--font-family-navbar);
+}
+
+.offcanvas-body form input, .offcanvas-body form input:focus {
+    border: 1px solid var(--color-3) !important;
+    border-right: none !important;
+    font-size: var(--font-size-body);
+    color: var(--color-body);
+    outline: none;
+    box-shadow: none;
+    border-radius: 20px 0px 0px 20px;
+    box-shadow: none;
+}
+
+.offcanvas-body form button, .offcanvas-body form button:focus, .offcanvas-body form button:hover{
+    background-color: var(--color-3) !important;
+    font-size: 1.2em;
+    color: white;
+    outline: none;
+    box-shadow: none;
+    border-radius: 0px 20px 20px 0px;
+    border: none;
+    box-shadow: none;
+}
+
+form input::placeholder {
+    color: rgba(0, 0, 0, 0.5) !important;
+    font-family: var(--font-family-body);
+    font-size: .8em;
+}
+/* ======================= CSS HEADER (FIN) ======================= */
+
+/* ======================= CSS MAIN - HERO (DEBUT) ======================= */
+.hero {
+    background-image: url(images/banniere/banniere\ chapeau\ 1.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: bottom;
+    width: 100%;
+    height: 100%;
+}
+
+.hero h1 {
+    font-size: var(--font-size-hero-1);
+    font-family: var(--poppins);
+    font-weight: bold;
+    pointer-events: none;
+    color: white;
+    text-shadow: var(--text-shadow) ;
+}
+
+.hero h1 span:first-child {
+    color: var(--color-3);
+}
+
+.hero h2 {
+    font-size: var(--font-size-hero-2);
+    font-family: var(--roboto);
+    font-weight: lighter;
+    pointer-events: none;
+    color: var(--color-1);
+}
+
+.hero .p-hero {
+    font-size: 1.2em;
+    font-family: var(--roboto);
+    font-weight: lighter;
+    color: whitesmoke;
+    pointer-events: none;
+}
+
+.hero-btn {
+    height: 50px;
+    width: 40%;
+    border: none;
+    outline: none;
+    color: white;
+    background-color: var(--color-1);
+    font-size: var(--font-size-button);
+    font-family: var(--poppins);
+    transition: all .5s ease-in-out;
+}
+
+.hero-btn:hover {
+    color: var(--color-1);
+    background-color: white;
+    transform: translateX(20px);
+}
+/* ======================= CSS MAIN - HERO (FIN) ======================= */
+
+/* ======================= CSS SECTION - WELCOME (DEBUT) ======================= */
+.welcome {
+    background-color: var(--color-1);
+}
+
+.line {
+    height: 5px;
+    width: 40%;
+    background-color: var(--color-3);
+    display: inline-block;
+}
+
+.welcome h1 {
+    font-size: 3em;
+    font-family: var(--roboto);
+    color: white;
+    font-weight: bold;
+    pointer-events: none;
+}
+
+.welcome #h2-row {
+    font-size: 1em;
+    font-family: var(--roboto);
+    color: white;
+    font-weight: lighter;
+    pointer-events: none;
+}
+
+.welcome #p-row {
+    font-size: 1em;
+    font-family: var(--roboto);
+    color: white;
+    font-weight: lighter;
+    pointer-events: none;
+}
+
+.welcome .card {
+    border: none;
+    border-radius: 0;
+    cursor: pointer;
+    background-color: white;
+    transition: all .5s ease;
+}
+
+.welcome .card:hover {
+    transform: translateY(-20px);
+}
+
+.card-body span {
+    font-size: 2em;
+    color: var(--color-3);
+}
+
+.card-body #h2-card {
+    color: var(--color-1);
+    font-size: 1.2em;
+    font-family: var(--poppins);
+}
+
+.card-body p {
+    color: var(--color-1);
+    font-size: 1em;
+    font-family: var(--poppins);
+}
+/* ======================= CSS SECTION - WELCOME (FIN) ======================= */
+
+/* ======================= CSS SECTION - SLIDER (DEBUT) ======================= */
+.carousel-inner {
+    width: 100%;
+    height: 500px;
+    overflow: hidden;
+}
+/* ======================= CSS SECTION - SLIDER (FIN) ======================= */
+
+/* ======================= CSS SECTION - PRODUITS (DEBUT) ======================= */
+.produits .card, .produits .card-body, .produits img {
+    border-radius: 0;
+}
+
+.produits .card small {
+    color: var(--color-3);
+}
+
+.card-body .stars {
+    pointer-events: none;
+}
+
+.produits .card small.favori {
+    color: var(--color-1);
+    font-size: 1.2em;
+    cursor: pointer;
+}
+
+.produits .card small.favori:hover {
+    color: var(--color-3);
+    font-size: 1.2em;
+    transform: scale(1.3);
+}
+
+.produits .card-text {
+    pointer-events: none;
+}
+
+.produits .card-text p:first-child {
+    font-family: var(--font-family-body);
+    color: var(--color-body);
+    font-size: .8em;
+}
+
+.produits .card-text p:last-child span {
+    font-family: var(--roboto);
+    font-weight: bold;
+    letter-spacing: 1px;
+    color: var(--color-1);
+    font-size: 1.4em;
+}
+
+.produits .card-text p:last-child del {
+    font-family: var(--roboto);
+    font-weight: bold;
+    letter-spacing: 1px;
+    color: rgba(0, 0, 0, 0.3);
+    font-size: 1em;
+}
+
+.produits .card-title {
+    font-family: var(--roboto);
+    color: var(--color-1);
+    font-size: var(--font-size-body);
+    pointer-events: none;
+
+}
+.pbtn {
+    border: none;
+    outline: none;
+    box-shadow: none;
+    color: white;
+    background-color: var(--color-3);
+    font-size: var(--font-size-button);
+    font-family: var(--roboto);
+}
+
+.pbtn {
+    transition:all .2s linear;
+    cursor: pointer;
+}
+.pbtn:hover {
+    transform: scale(.97);
+}
+
+.produits img {
+    overflow: hidden;
+    transition: all .5s linear;
+    cursor: pointer;
+}
+.produits img:hover {
+    transform: scale(1.03);
+}
+
+.produits h1 {
+    position: relative;
+    text-align: center;
+    font-family: var(--cinzel);
+    font-weight: bold;
+    color: var(--color-1);
+    font-size: 2em;
+    margin-block: 50px;
+    pointer-events: none;
+}
+
+.produits h1::before {
+    position: absolute;
+    content: "";
+    width: 50%;
+    height: 5px;
+    top: -15px;
+    left: 0;
+    background-color: var(--color-1);
+}
+
+.produits h1::after {
+    position: absolute;
+    content: "";
+    width: 50%;
+    height: 5px;
+    bottom: -15px;
+    right: 0;
+    background-color: var(--color-1);
+}
+
+.produits {
+    margin-bottom: 50px;
+    padding-bottom: 50px;
+}
+
+/* ======================= CSS SECTION - PRODUITS (FIN) ======================= */
+
+
+/* ======================= CSS SECTION - SERVICES (DEBUT) ======================= */
+.services .row {
+    background-color: var(--color-1);
+}
+
+.service-item {
+    background-color: white;
+    color: var(--color-1);
+    font-family: var(--roboto);
+    cursor: pointer;
+    transition: all .5s ease;
+}
+
+.service-item:hover {
+    transform: translateY(-20px);
+}
+
+.service-item span {
+    font-size: 2em;
+}
+
+.services h1 {
+    position: relative;
+    font-family: var(--cinzel);
+    font-weight: bold;
+    font-size: 2em;
+    color: var(--color-1);
+    pointer-events: none;
+}
+
+.services h1::before {
+    position: absolute;
+    content: "";
+    width: 50%;
+    height: 5px;
+    top: -15px;
+    left: 0;
+    background-color: var(--color-1);
+}
+
+.services h1::after {
+    position: absolute;
+    content: "";
+    width: 50%;
+    height: 5px;
+    bottom: -15px;
+    right: 0;
+    background-color: var(--color-1);
+}
+/* ======================= CSS SECTION - SERVICES (FIN) ======================= */
+
+/* ======================= CSS SECTION - ABOUT (DEBUT) ======================= */
+.about-btn {
+    height: 50px;
+    width: 40%;
+    border: 2px solid var(--color-1) !important;
+    outline: none;
+    color: white;
+    background-color: var(--color-1);
+    font-size: var(--font-size-button);
+    font-family: var(--poppins);
+    transition: all .5s ease-in-out;
+}
+
+.about-btn:hover {
+    color: var(--color-1);
+    background-color: white;
+    transform: translateX(20px);
+}
+
+.about .col-lg-5 h1 {
+    position: relative;
+    font-family: var(--cinzel);
+    font-weight: bold;
+    font-size: 2em;
+    pointer-events: none;
+    color: var(--color-1);
+}
+
+.about h1::before {
+    position: absolute;
+    content: "";
+    width: 50%;
+    height: 5px;
+    top: -15px;
+    left: 0;
+    background-color: var(--color-1);
+}
+
+.about h1::after {
+    position: absolute;
+    content: "";
+    width: 50%;
+    height: 5px;
+    bottom: -15px;
+    right: 0;
+    background-color: var(--color-1);
+}
+
+.about p {
+    font-size: 1em;
+    font-family: var(--poppins);
+    color: rgba(0, 0, 0, 0.7);
+    pointer-events: none;
+}
+
+.about p span {
+    font-size: 1em;
+    color: var(--color-3);
+}
+
+/* ======================= CSS SECTION - ABOUT (FIN) ======================= */
+
+
+/* ======================= CSS SECTION - CONTACT (DEBUT) ======================= */
+.contact .col-lg-5 h1 {
+    position: relative;
+    font-family: var(--cinzel);
+    font-size: 2em;
+    font-weight: bold;
+    pointer-events: none;
+    color: var(--color-1);
+}
+
+.contact h1::before {
+    position: absolute;
+    content: "";
+    width: 50%;
+    height: 5px;
+    top: -15px;
+    left: 0;
+    background-color: var(--color-1);
+}
+
+.contact h1::after {
+    position: absolute;
+    content: "";
+    width: 50%;
+    height: 5px;
+    bottom: -15px;
+    right: 0;
+    background-color: var(--color-1);
+}
+
+form .input-box {
+    position: relative;
+    width: 100%;
+    height: 50px;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.2);
+    margin: 30px 0;
+}
+
+form .input-box:first-child {
+    margin-top: 10px;
+}
+
+form .input-box label {
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+    font-size: 1em;
+    color: rgba(0, 0, 0, 0.7);
+    pointer-events: none;
+    transition: .5s ease;
+    font-family: var(--poppins);
+}
+
+.input-box input:focus~label, 
+.input-box input:valid~label {
+    top: -5px;
+
+}
+
+form .input-box input {
+    border: none;
+    outline: none;
+    width: 100%;
+    height: 100%;
+    color: rgba(0, 0, 0, 0.7);
+    padding: 0 35px 0 10px;
+    font-size: 1em;
+    font-family: var(--poppins);
+}
+
+form .input-box span {
+    position: absolute;
+    right: 5px;
+    font-size: 1.2em;
+    color: var(--color-1);
+    transform: translateY(-50%);
+    top: 50%;
+}
+
+form .comments {
+    width: 100%;
+}
+
+.comments textarea {
+    width: 100%;
+    height: 225px;
+    resize: none;
+    font-family: var(--poppins);
+    color: rgba(0, 0, 0, 0.7);
+    font-size: 1em;
+    padding: 10px;
+    margin-bottom: 20px;
+    outline: none;
+    border: 2px solid rgba(0, 0, 0, 0.2);
+
+}
+
+.fbtn {
+    width: 100%;
+    height: 50px;
+    background-color: var(--color-1);
+    border: 2px solid var(--color-coral);
+    outline: none;
+    color: white;
+    font-size: var(--font-size-button);
+    font-family: var(--poppins);
+    cursor: pointer;
+}
+
+/* ======================= CSS SECTION - CONTACT (FIN) ======================= */
+
+/* ======================= CSS SECTION - FOOTER (DEBUT) ======================= */
+
+footer {
+    background-color: var(--color-1);
+}
+
+footer .btn.btn-social {
+    margin-right: 5px;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--color-3);
+    border: 1px solid white;
+    border-radius: 40px;
+    transition: .3s;
+    font-size: 1.2em;
+}
+
+footer .btn.btn-social:hover {
+    color: var(--color-1);
+}
+
+footer .btn.btn-link {
+    display: block;
+    margin-bottom: 5px;
+    padding: 0;
+    text-align: left;
+    font-size: 1em;
+    font-family: var(--roboto);
+    font-weight: lighter;
+    color: white;
+    text-decoration: none;
+    transition: .3s;
+}
+
+footer .btn.btn-link:hover {
+    letter-spacing: 1px;
+    box-shadow: none;
+}
+
+footer .copyright {
+    padding: 25px 0;
+    font-size: 1em;
+    border-top: 1px solid rgba(255, 255, 255, 0.3);
+    color: white;
+    font-weight: lighter;
+    font-family: var(--roboto);
+    font-size: .9em;
+    pointer-events: none;
+}
+
+footer .col-lg-4 p {
+    color: white;
+    font-weight: lighter;
+    font-family: var(--roboto);
+    font-size: 1em;
+    pointer-events: none;
+}
+
+footer .col-lg-4 p span {
+    color: var(--color-3);
+}
+
+footer h4 {
+    font-family: var(--roboto);
+    font-size: 1.2em;
+    color: white;
+    pointer-events: none;
+}
+/* ======================= CSS SECTION - FOOTER (FIN) ======================= */
+
+
